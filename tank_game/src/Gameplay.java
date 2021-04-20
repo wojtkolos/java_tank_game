@@ -17,11 +17,11 @@ public class Gameplay
 	private Player player1 = new Player(200, 550, 5,
 			"Images/player1_tank_up.png", "Images/player1_tank_down.png",
 			"Images/player1_tank_right.png", "Images/player1_tank_left.png",
-			KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_S, KeyEvent.VK_D, KeyEvent.VK_U);
+			KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_D, KeyEvent.VK_A);
 	private Player player2 = new Player(400, 550, 5,
 			"Images/player2_tank_up.png", "Images/player2_tank_down.png",
 			"Images/player2_tank_right.png", "Images/player2_tank_left.png",
-			KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_DOWN, KeyEvent.VK_RIGHT, KeyEvent.VK_M);
+			KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_RIGHT, KeyEvent.VK_LEFT);
 	
 	private Timer timer;
 	private int delay=8;
@@ -248,26 +248,26 @@ public class Gameplay
 			}
 			if(e.getKeyCode()== KeyEvent.VK_U)
 			{
-				if(!player1Shoot)
+				if(!player1.isPlayerShoot())
 				{
-					if(player1up)
+					if(player1.isPlayerUp())
 					{					
-						player1Bullet = new Player1Bullet(player1X + 20, player1Y);
+						player1Bullet = new Player1Bullet(player1.getPlayerX() + 20, player1.getPlayerY());
 					}
-					else if(player1down)
+					else if(player1.isPlayerDown())
 					{					
-						player1Bullet = new Player1Bullet(player1X + 20, player1Y + 40);
+						player1Bullet = new Player1Bullet(player1.getPlayerX() + 20, player1.getPlayerY() + 40);
 					}
-					else if(player1right)
+					else if(player1.isPlayerRight())
 					{				
-						player1Bullet = new Player1Bullet(player1X + 40, player1Y + 20);
+						player1Bullet = new Player1Bullet(player1.getPlayerX() + 40, player1.getPlayerY() + 20);
 					}
-					else if(player1left)
+					else if(player1.isPlayerLeft())
 					{			
-						player1Bullet = new Player1Bullet(player1X, player1Y + 20);
+						player1Bullet = new Player1Bullet(player1.getPlayerX(), player1.getPlayerY() + 20);
 					}
 					
-					player1Shoot = true;
+					player1.setPlayerShoot(true);
 				}
 			}
 			player1.setPlayerDirection(e);
@@ -285,18 +285,26 @@ public class Gameplay
 
 		public void keyPressed(KeyEvent e) {
 			if (e.getKeyCode() == KeyEvent.VK_M) {
-				if (!player2Shoot) {
-					if (player2up) {
-						player2Bullet = new Player2Bullet(player2X + 20, player2Y);
-					} else if (player2down) {
-						player2Bullet = new Player2Bullet(player2X + 20, player2Y + 40);
-					} else if (player2right) {
-						player2Bullet = new Player2Bullet(player2X + 40, player2Y + 20);
-					} else if (player2left) {
-						player2Bullet = new Player2Bullet(player2X, player2Y + 20);
+				if(!player2.isPlayerShoot())
+				{
+					if(player2.isPlayerUp())
+					{
+						player2Bullet = new Player2Bullet(player2.getPlayerX() + 20, player2.getPlayerY());
+					}
+					else if(player2.isPlayerDown())
+					{
+						player2Bullet = new Player2Bullet(player2.getPlayerX() + 20, player2.getPlayerY() + 40);
+					}
+					else if(player2.isPlayerRight())
+					{
+						player2Bullet = new Player2Bullet(player2.getPlayerX() + 40, player2.getPlayerY() + 20);
+					}
+					else if(player2.isPlayerLeft())
+					{
+						player2Bullet = new Player2Bullet(player2.getPlayerX(), player2.getPlayerY() + 20);
 					}
 
-					player2Shoot = true;
+					player2.setPlayerShoot(true);
 				}
 			}
 			player2.setPlayerDirection(e);

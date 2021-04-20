@@ -25,11 +25,10 @@ public class Player {
     private int keyDown;
     private int keyRight;
     private int keyLeft;
-    private int keyShoot;
 
     public Player(int playerX, int playerY, int playerLives,
                   String textureUp, String textureDown, String textureRight, String textureLeft,
-                  int keyUp, int keyDown, int keyRight, int keyLeft, int keyShoot)
+                  int keyUp, int keyDown, int keyRight, int keyLeft)
     {
         this.playerX = playerX;
         this.playerY = playerY;
@@ -51,7 +50,6 @@ public class Player {
         this.keyDown = keyDown;
         this.keyRight = keyRight;
         this.keyLeft = keyLeft;
-        this.keyShoot = keyShoot;
     }
 
     public ImageIcon getPlayerImageIcon() {
@@ -200,30 +198,14 @@ public class Player {
             if(!(playerY > 540))
                 playerY+=10;
         }
-        if(e.getKeyCode()== keyRight)
-        {
+        if(e.getKeyCode()== keyRight) {
             playerRight = true;
             playerLeft = false;
             playerDown = false;
             playerUp = false;
 
-            if(!(playerX > 590))
-                playerX+=10;
-        }
-        if (e.getKeyCode() == keyShoot) {
-            if (!playerShoot) {
-                if (playerUp) {
-                    player2Bullet = new Player2Bullet(playerX + 20, playerY);
-                } else if (player2down) {
-                    player2Bullet = new Player2Bullet(playerX + 20, playerY + 40);
-                } else if (player2right) {
-                    player2Bullet = new Player2Bullet(playerX + 40, playerY + 20);
-                } else if (player2left) {
-                    player2Bullet = new Player2Bullet(playerX, playerY + 20);
-                }
-
-                player2Shoot = true;
-            }
+            if (!(playerX > 590))
+                playerX += 10;
         }
     }
 
