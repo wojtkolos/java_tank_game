@@ -14,14 +14,9 @@ public class Gameplay
 {
 	private brick br;
 
-	private Player player1 = new Player(200, 550, 5,
-			"Images/player1_tank_up.png", "Images/player1_tank_down.png",
-			"Images/player1_tank_right.png", "Images/player1_tank_left.png",
-			KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_D, KeyEvent.VK_A);
-	private Player player2 = new Player(400, 550, 5,
-			"Images/player2_tank_up.png", "Images/player2_tank_down.png",
-			"Images/player2_tank_right.png", "Images/player2_tank_left.png",
-			KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_RIGHT, KeyEvent.VK_LEFT);
+	//players
+	private Player player1;
+	private Player player2;
 	
 	private Timer timer;
 	private int delay=8;
@@ -37,6 +32,16 @@ public class Gameplay
 	public Gameplay()
 	{				
 		br = new brick();
+
+		player1 = new Player(200, 550, 5,
+				"Images/player1_tank_up.png", "Images/player1_tank_down.png",
+				"Images/player1_tank_right.png", "Images/player1_tank_left.png",
+				KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_D, KeyEvent.VK_A);
+		player2 = new Player(400, 550, 5,
+				"Images/player2_tank_up.png", "Images/player2_tank_down.png",
+				"Images/player2_tank_right.png", "Images/player2_tank_left.png",
+				KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_RIGHT, KeyEvent.VK_LEFT);
+
 		player1Listener = new Player1Listener();
 		player2Listener = new Player2Listener();
 		setFocusable(true);
@@ -241,7 +246,7 @@ public class Gameplay
 			{
 				br = new brick();
 				player1.resetPlayer(200, 550, 5);
-				player1.resetPlayer(400, 550, 5);
+				player2.resetPlayer(400, 550, 5);
 
 				play = true;
 				repaint();
