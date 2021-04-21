@@ -165,48 +165,29 @@ public class Player {
             playerImageIcon=new ImageIcon(textureLeft);
     }
 
-    public void setPlayerDirection(KeyEvent e)
-    {
-        if(e.getKeyCode()== keyUp)
-        {
-            playerRight = false;
-            playerLeft = false;
-            playerDown = false;
-            playerUp = true;
-
-            if(!(playerY < 10))
-                playerY-=10;
-
-        }
-        if(e.getKeyCode()== keyLeft)
-        {
-            playerRight = false;
-            playerLeft = true;
-            playerDown = false;
-            playerUp = false;
-
-            if(!(playerX < 10))
-                playerX-=10;
-        }
-        if(e.getKeyCode()== keyDown)
-        {
-            playerRight = false;
-            playerLeft = false;
-            playerDown = true;
-            playerUp = false;
-
-            if(!(playerY > 540))
-                playerY+=10;
-        }
-        if(e.getKeyCode()== keyRight) {
-            playerRight = true;
-            playerLeft = false;
-            playerDown = false;
-            playerUp = false;
-
-            if (!(playerX > 590))
-                playerX += 10;
-        }
+    public int getKeyUp() {
+        return keyUp;
     }
+
+    public int getKeyDown() {
+        return keyDown;
+    }
+
+    public int getKeyRight() {
+        return keyRight;
+    }
+
+    public int getKeyLeft() {
+        return keyLeft;
+    }
+
+    public void setPlayerDirection(boolean right, boolean left, boolean down, boolean up)
+    {
+        playerRight = right;
+        playerLeft = left;
+        playerDown = down;
+        playerUp = up;
+    }
+
 
 }
