@@ -38,7 +38,7 @@ public class Player {
         this.playerUp = true;
         this.playerScore = 0;
         this.playerLives = playerLives;
-        this.playerShoot = false;;
+        this.playerShoot = false;
         this.bulletShootDir = "";
         //textures
         this.textureUp = textureUp;
