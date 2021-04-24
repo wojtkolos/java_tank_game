@@ -12,21 +12,22 @@ public class Gameplay
 		extends JPanel
 		implements ActionListener
 {
+	//bricks
 	private brick br;
 
 	//players
 	private Player player1;
 	private Player player2;
-	
+	//timer
 	private Timer timer;
 	private int delay=8;
-	
+	//keys
 	private Player1Listener player1Listener;
 	private Player2Listener player2Listener;
-
+	//actions
 	BulletsAction bulletsAction;
 	PlayersAction playersAction;
-
+	//textScore
 	TextScore textScore;
 	
 	private boolean play = true;
